@@ -22,9 +22,17 @@ namespace DungeonsAndDragons
         public void InitializeEvents()
         {
             this.Load -= new System.EventHandler(Load_Form);
+            this.FormClosed -= new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
 
             this.Load += new System.EventHandler(Load_Form);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
         }
+
+        private void Kill_Form(object? sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
         private void Load_Form(object? sender, EventArgs e)
         {
             this.MaximizeBox = false;

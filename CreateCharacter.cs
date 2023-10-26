@@ -29,6 +29,7 @@ namespace DungeonsAndDragons
             this.PlusButtonSuerte.Click -= new System.EventHandler(this.ClickPlusButton);
             this.RazaComboBox.SelectedValueChanged -= new System.EventHandler(this.RazaChanged);
             this.SubmitButton.Click -= new System.EventHandler(this.ClickSubmitButton);
+            this.FormClosed -= new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
 
             this.Load += new System.EventHandler(this.Form_Load);
             this.LessButtonFuerza.Click += new System.EventHandler(this.ClickLessButton);
@@ -39,8 +40,12 @@ namespace DungeonsAndDragons
             this.PlusButtonSuerte.Click += new System.EventHandler(this.ClickPlusButton);
             this.RazaComboBox.SelectedValueChanged += new System.EventHandler(this.RazaChanged);
             this.SubmitButton.Click += new System.EventHandler(this.ClickSubmitButton);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
         }
-
+        private void Kill_Form(object? sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
         private void ClickSubmitButton(object? sender, EventArgs e)
         {
             if (NameTextBox.Text.Length == 0)
@@ -54,7 +59,7 @@ namespace DungeonsAndDragons
             else
             {
                 File.WriteAllText(Constant.FILE_PATH, SaveStats(NameTextBox.Text, FuerzaTextBox.Text, VidaTextBox.Text, SuerteTextBox.Text));
-                this.Hide();
+                this.Close();
                 new StartGame().Show();
             }
         }
@@ -89,14 +94,14 @@ namespace DungeonsAndDragons
                 EvilRadioButton.Enabled = true;
             }
         }
-        private void Form_Load(object sender, EventArgs e)
+        private void Form_Load(object? sender, EventArgs e)
         {
             LoadFont(new FontManager());
             this.MaximizeBox = false;
             RandomPointDistribution();
             RazaComboBox.SelectedIndex = 0;
         }
-        private void ClickLessButton(object sender, EventArgs e)
+        private void ClickLessButton(object? sender, EventArgs e)
         {
             Button b = sender as Button ?? new();
             if (b.Name.Equals("LessButtonFuerza") && !FuerzaTextBox.Text.Equals("0"))
@@ -113,7 +118,7 @@ namespace DungeonsAndDragons
 
             }
         }
-        private void ClickPlusButton(object sender, EventArgs e)
+        private void ClickPlusButton(object? sender, EventArgs e)
         {
             Button b = sender as Button ?? new();
             if (b.Name.Equals("PlusButtonFuerza") && !PointsLabel.Text.Equals("0"))

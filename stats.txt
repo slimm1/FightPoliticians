@@ -1,0 +1,4 @@
+name:mkamksa
+fuerza:10
+vida:0
+suerte:0
