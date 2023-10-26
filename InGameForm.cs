@@ -155,6 +155,7 @@ namespace DungeonsAndDragons
         }
         private void LoadEnemy()
         {
+            HistoryList.Items.Clear();
             if (index < enemies.Enemies.Count)
             {
                 EnemyPicture.ImageLocation = enemies.Enemies[index].Image;

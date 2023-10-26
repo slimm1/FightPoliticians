@@ -20,7 +20,7 @@ namespace DungeonsAndDragons
             Enemies.Add(enemy);
         }
         private Enemy EnemyGenerator(string name, string image) {
-            return new Enemy(name, image, RandomGenerator(5,9), RandomGenerator(15, 26));
+            return new Enemy(name, image, RandomGenerator(3,7), RandomGenerator(15, 26));
         }
         private int RandomGenerator(int min, int max) {
             Random rnd = new Random();
