@@ -56,7 +56,7 @@
             MainPanel.Dock = DockStyle.Fill;
             MainPanel.Location = new Point(0, 0);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(1046, 529);
+            MainPanel.Size = new Size(1070, 529);
             MainPanel.TabIndex = 0;
             // 
             // FightPanel
@@ -176,7 +176,7 @@
             HistoryPanel.Location = new Point(603, 50);
             HistoryPanel.Margin = new Padding(20, 50, 3, 3);
             HistoryPanel.Name = "HistoryPanel";
-            HistoryPanel.Size = new Size(353, 417);
+            HistoryPanel.Size = new Size(427, 417);
             HistoryPanel.TabIndex = 1;
             // 
             // HistoryLabel
@@ -197,7 +197,7 @@
             HistoryList.Location = new Point(20, 54);
             HistoryList.Margin = new Padding(20, 10, 3, 3);
             HistoryList.Name = "HistoryList";
-            HistoryList.Size = new Size(317, 304);
+            HistoryList.Size = new Size(375, 304);
             HistoryList.TabIndex = 0;
             // 
             // InGameForm
@@ -205,8 +205,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Linen;
-            ClientSize = new Size(1046, 529);
+            ClientSize = new Size(1070, 529);
             Controls.Add(MainPanel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "InGameForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InGameForm";
