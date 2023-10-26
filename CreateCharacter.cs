@@ -29,7 +29,6 @@ namespace DungeonsAndDragons
             this.PlusButtonSuerte.Click -= new System.EventHandler(this.ClickPlusButton);
             this.RazaComboBox.SelectedValueChanged -= new System.EventHandler(this.RazaChanged);
             this.SubmitButton.Click -= new System.EventHandler(this.ClickSubmitButton);
-            this.FormClosed -= new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
 
             this.Load += new System.EventHandler(this.Form_Load);
             this.LessButtonFuerza.Click += new System.EventHandler(this.ClickLessButton);
@@ -40,11 +39,6 @@ namespace DungeonsAndDragons
             this.PlusButtonSuerte.Click += new System.EventHandler(this.ClickPlusButton);
             this.RazaComboBox.SelectedValueChanged += new System.EventHandler(this.RazaChanged);
             this.SubmitButton.Click += new System.EventHandler(this.ClickSubmitButton);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
-        }
-        private void Kill_Form(object? sender, EventArgs e)
-        {
-            Environment.Exit(0);
         }
         private void ClickSubmitButton(object? sender, EventArgs e)
         {
@@ -59,11 +53,10 @@ namespace DungeonsAndDragons
             else
             {
                 File.WriteAllText(Constant.FILE_PATH, SaveStats(NameTextBox.Text, FuerzaTextBox.Text, VidaTextBox.Text, SuerteTextBox.Text));
-                this.Close();
+                this.Hide();
                 new StartGame().Show();
             }
         }
-
         private void RazaChanged(object? sender, EventArgs e)
         {
             if (RazaComboBox.SelectedItem.Equals("Orco"))

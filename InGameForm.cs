@@ -28,18 +28,11 @@ namespace DungeonsAndDragons
             this.LightAttackButton.Click -= new System.EventHandler(LightButtonClicked);
             this.MediumAttackButton.Click -= new System.EventHandler(MediumButtonClicked);
             this.HardAttackButton.Click -= new System.EventHandler(HardButtonClicked);
-            this.FormClosed -= new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
 
             this.Load += new System.EventHandler(InGame_Load);
             this.LightAttackButton.Click += new System.EventHandler(LightButtonClicked);
             this.MediumAttackButton.Click += new System.EventHandler(MediumButtonClicked);
             this.HardAttackButton.Click += new System.EventHandler(HardButtonClicked);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Kill_Form);
-        }
-
-        private void Kill_Form(object? sender, FormClosedEventArgs e)
-        {
-            Environment.Exit(0);
         }
 
         private void HardButtonClicked(object? sender, EventArgs e)
@@ -150,7 +143,7 @@ namespace DungeonsAndDragons
                 if (CharPs <= 0)
                 {
                     stats.Win = false;
-                    this.Close();
+                    this.Hide();
                     new EndWindow(stats).Show();
                 }
                 HistoryList.Items.Add($"{enemies.Enemies[index].Name} devolvió el ataque a {StatsManager.GetStat("name")} con un daño de {damage}");
@@ -173,7 +166,7 @@ namespace DungeonsAndDragons
             else
             {
                 stats.Win = true;
-                this.Close();
+                this.Hide();
                 new EndWindow(stats).Show();
             }
         }
